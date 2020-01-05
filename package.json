@@ -3,5 +3,14 @@
 	"version": "1.0.0",
 	"author": "Volkov Ilya",
 	"description": "Тестовое задание",
-	"dependencies": {}
+	"scripts": {
+		"build": "webpack",
+		"start": "webpack-dev-server --open"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"webpack": "4.41.5",
+		"webpack-cli": "3.3.10",
+		"webpack-dev-server": "3.10.1"
+	}
 }
