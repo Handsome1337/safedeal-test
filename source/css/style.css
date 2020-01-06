@@ -1,0 +1,332 @@
+/*
+  Подключение шрифтов
+*/
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local("Roboto"),
+    local("Roboto-Regular"),
+    url("./../fonts/Roboto-Regular.woff2"),
+    url("./../fonts/Roboto-Regular.woff");
+}
+
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local("Roboto Condensed"),
+    local("RobotoCondensed-Regular"),
+    url("./../fonts/RobotoCondensed-Regular.woff2"),
+    url("./../fonts/RobotoCondensed-Regular.woff");
+}
+
+/*
+  Общие утилитарные стили
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  height: 100%;
+
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+
+  border: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/*
+  Стилизация шапки
+*/
+
+.site-header {
+  width: 320px;
+  margin: 0 auto 30px;
+  padding: 0 20px;
+}
+
+.site-headline {
+  font-family: "Roboto Condensed";
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+
+  margin: 0;
+  margin-top: 15px;
+}
+
+/*
+  Стилизация основного контента
+*/
+
+.site-main {
+  width: 320px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.photos-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.photos-list__item {
+  margin-bottom: 30px;
+}
+
+/*
+  Стилизация подвала
+*/
+
+.site-footer {
+  position: relative;
+
+  width: 320px;
+  margin: auto auto 0;
+  padding: 0 20px;
+}
+
+.site-footer::before {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+  height: 1px;
+
+  background-color: #CCCCCC;
+}
+
+.copyright {
+  font-family: "Roboto Condensed";
+  font-size: 14px;
+  line-height: 16px;
+  color: #CCCCCC;
+  text-align: center;
+  text-transform: uppercase;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 33px;
+  margin: 12px 0 11px;
+}
+
+/*
+  Стилизация попапа
+*/
+
+.popup {
+  position: relative;
+
+  font-family: "Roboto";
+
+  display: none;
+  width: 320px;
+  margin: 0 auto;
+}
+
+.post__close {
+  position: absolute;
+  top: 21px;
+  right: 21px;
+  z-index: 20;
+
+  display: block;
+  width: 27px;
+  height: 27px;
+
+  background-color: transparent;
+  border: 0;
+
+  cursor: pointer;
+}
+
+.post__close::before,
+.post__close::after {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background-color: #000000;
+}
+
+.post__close::before {
+  transform: rotate(45deg);
+}
+
+.post__close::after {
+  transform: rotate(-45deg);
+}
+
+.post__photo {
+  display: block;
+  margin-bottom: 25px;
+}
+
+.post__comments-list {
+  margin: 0;
+  padding: 0 20px;
+
+  list-style: none;
+}
+
+.post__comment-item {
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+.post__comment-date {
+  font-size: 13px;
+  line-height: 15px;
+  color: #999999;
+
+  display: block;
+  margin-bottom: 5px;
+}
+
+.post__comment-text {
+  margin: 0;
+}
+
+.post__user-controls {
+  font-size: 13px;
+  line-height: 15px;
+
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.post__user-input {
+  font-size: 13px;
+  line-height: 15px;
+  color: #CCCCCC;
+
+  margin-bottom: 20px;
+  padding: 8px 11px;
+
+  border: 1px solid #CCCCCC;
+  border-radius: 3px;
+}
+
+.post__comment-submit {
+  font-size: 13px;
+  line-height: 15px;
+  color: #FFFFFF;
+
+  margin-bottom: 48px;
+  padding: 8px 11px;
+
+  background-color: #4997D0;
+  border: 0;
+  border-radius: 3px;
+}
+
+@media (min-width: 768px) {
+  .site-header {
+    width: 768px;
+  }
+
+  .site-main {
+    width: 768px;
+  }
+
+  .photos-list {
+    margin-left: -20px;
+  }
+
+  .photos-list__item {
+    margin-left: 20px;
+  }
+
+  .site-footer {
+    width: 768px;
+  }
+
+  .site-footer::before {
+    width: 728px;
+  }
+
+  .popup {
+    width: 620px;
+    margin: 0 auto;
+  }
+
+  .post__form {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px 0 30px 30px;
+  }
+
+  .post__photo {
+    margin-right: 14px;
+    margin-bottom: 29px;
+  }
+
+  .post__comments-list {
+    width: 230px;
+    padding: 0;
+  }
+
+  .post__user-controls {
+    padding: 0;
+  }
+
+  .post__user-controls {
+    width: 331px;
+  }
+
+  .post__comment-submit {
+    margin-bottom: 0;
+  }
+}
