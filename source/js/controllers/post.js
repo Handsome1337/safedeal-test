@@ -16,6 +16,7 @@ export default class PostController {
   render(post) {
     this._postComponent = new PostComponent(post);
 
+    /* При клике на пост загружается большое изображение и список комментариев, в разметку добавляется попап и оверлей */
     this._postComponent.setOnPostClick((id) => {
       createXhr((post) => {
         this._postDetailComponent = new PostDetailComponent(post, this._overlay);
