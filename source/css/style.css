@@ -1,5 +1,5 @@
 /*
-  Подключение шрифтов
+  Подключение шрифтов, анимация появления попапа
 */
 
 @font-face {
@@ -24,6 +24,16 @@
     local("RobotoCondensed-Regular"),
     url("./../fonts/RobotoCondensed-Regular.woff2"),
     url("./../fonts/RobotoCondensed-Regular.woff");
+}
+
+@keyframes popup {
+  from {
+    transform: translate(-50%, -35%) scale(6);
+  }
+
+  to {
+    transform: translate(-50%, -35%) scale(1);
+  }
 }
 
 /*
@@ -118,6 +128,23 @@ img {
   margin-bottom: 30px;
 }
 
+.photos-list__link {
+  cursor: pointer;
+}
+
+.photos-list__link:hover .photos-list__image {
+  box-shadow: 0 0 25px 15px rgba(204, 204, 204, 0.5);
+}
+
+.photos-list__link:focus .photos-list__image {
+  box-shadow: 0 0 25px 15px rgba(204, 204, 204, 0.5);
+}
+
+.photos-list__image {
+  width: 280px;
+  height: 171px;
+}
+
 /*
   Стилизация подвала
 */
@@ -157,24 +184,48 @@ img {
 }
 
 /*
-  Стилизация попапа
+  Стилизация попапа и оверлея
 */
 
+.overlay {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.overlay--closed {
+  visibility: hidden;
+}
+
 .popup {
-  position: relative;
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  z-index: 20;
 
   font-family: "Roboto";
 
-  display: none;
   width: 320px;
-  margin: 0 auto;
+  height: 100%;
+
+  background-color: #FFFFFF;
+
+  transform: translate(-50%, -35%);
+
+  animation: popup 0.5s ease-out;
 }
 
 .post__close {
   position: absolute;
   top: 21px;
   right: 21px;
-  z-index: 20;
+  z-index: 30;
 
   display: block;
   width: 27px;
@@ -210,6 +261,8 @@ img {
 
 .post__photo {
   display: block;
+  width: 320px;
+  height: 205px;
   margin-bottom: 25px;
 }
 
@@ -250,13 +303,21 @@ img {
 .post__user-input {
   font-size: 13px;
   line-height: 15px;
-  color: #CCCCCC;
 
   margin-bottom: 20px;
   padding: 8px 11px;
 
   border: 1px solid #CCCCCC;
   border-radius: 3px;
+}
+
+.post__user-input::placeholder {
+  color: #CCCCCC;
+}
+
+.post__user-input:hover,
+.post__user-input:focus {
+  border-color: #4997D0;
 }
 
 .post__comment-submit {
@@ -270,6 +331,8 @@ img {
   background-color: #4997D0;
   border: 0;
   border-radius: 3px;
+
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -289,6 +352,11 @@ img {
     margin-left: 20px;
   }
 
+  .photos-list__image {
+    width: 229px;
+    height: 142px;
+  }
+
   .site-footer {
     width: 768px;
   }
@@ -299,7 +367,7 @@ img {
 
   .popup {
     width: 620px;
-    margin: 0 auto;
+    height: auto;
   }
 
   .post__form {
@@ -309,6 +377,7 @@ img {
   }
 
   .post__photo {
+    width: 331px;
     margin-right: 14px;
     margin-bottom: 29px;
   }
